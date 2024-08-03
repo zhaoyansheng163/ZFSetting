@@ -80,10 +80,13 @@
         [weakSelf.navigationController pushViewController:helpVC animated:YES];
     };
     
+    // 开发者微信
+    ZFSettingItem *weixin = [ZFSettingItem itemWithIcon:@"MoreShare" title:@"开发者微信" type:ZFSettingItemTypeText text:@"xxxxxx"];
+    
     ZFSettingGroup *group = [[ZFSettingGroup alloc] init];
     group.header = @"高级设置";
     group.footer = @"这是footer";
-    group.items = @[ help, share , about];
+    group.items = @[ help, share , about,weixin];
     [_allGroups addObject:group];
 }
 
