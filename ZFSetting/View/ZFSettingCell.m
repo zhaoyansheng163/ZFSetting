@@ -66,6 +66,9 @@
         rightLabel.text=item.text;
         //rightLabel.textAlignment = NSTextAlignment;
         self.accessoryView= rightLabel;
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        // 用默认的选中样式
+        self.selectionStyle = UITableViewCellSelectionStyleBlue;
         //self.accessoryView.backgroundColor= [UIColor lightGrayColor];   //加上红色容易看清楚
     } else {
         // 什么也没有，清空右边显示的view

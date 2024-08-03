@@ -80,8 +80,18 @@
         [weakSelf.navigationController pushViewController:helpVC animated:YES];
     };
     
+    NSString *weixinStr =@"xxxxxx";
     // 开发者微信
-    ZFSettingItem *weixin = [ZFSettingItem itemWithIcon:@"MoreShare" title:@"开发者微信" type:ZFSettingItemTypeText text:@"xxxxxx"];
+    ZFSettingItem *weixin = [ZFSettingItem itemWithIcon:@"MoreShare" title:@"开发者微信" type:ZFSettingItemTypeText text:weixinStr];
+    weixin.operation = ^{
+        //复制到剪切板
+        [UIPasteboard generalPasteboard].string = weixinStr;
+        // 初始化对话框
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"已复制" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+        // 弹出对话框
+        [self presentViewController:alert animated:true completion:nil];
+    };
     
     ZFSettingGroup *group = [[ZFSettingGroup alloc] init];
     group.header = @"高级设置";
